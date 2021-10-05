@@ -17,15 +17,15 @@ def index():
     '''
     pitch = Pitch.query.filter_by().first()
     title = 'Pitch'
-    motivational = Pitch.query.filter_by(category="music")
-    fashiontrends = Pitch.query.filter_by(category ="fashiontrends")
-    technology = Pitch.query.filter_by(category ="technology")
+    music = Pitch.query.filter_by(category="music")
+    movies = Pitch.query.filter_by(category ="movies")
+    art = Pitch.query.filter_by(category ="art")
     general = Pitch.query.filter_by(category ="general")
 
     upvotes = Upvote.get_all_upvotes(pitch_id=Pitch.id)
     
 
-    return render_template('home.html', title = title, pitch = pitch, fashiontrends=fashiontrends, motivational=motivational, technology=technology, general=general, upvotes=upvotes)
+    return render_template('home.html', title = title, pitch = pitch, movies=movies, music=music, art=art, general=general, upvotes=upvotes)
     
 
 @main.route('/pitches/new/', methods = ['GET','POST'])
